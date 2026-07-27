@@ -90,7 +90,7 @@ const VideoDetails = () => {
                 <div className="flex h-11 w-11 rounded-full overflow-hidden cursor-pointer">
                   <img
                     className="h-full w-full object-cover"
-                    src={video?.author?.avatar[0]?.url}
+                    src={video?.author?.avatar?.[0]?.url}
                     alt="avatar"
                   />
                 </div>
@@ -98,7 +98,7 @@ const VideoDetails = () => {
               <div className="flex flex-col ml-4 cursor-pointer">
                 <div className="text-white text-md font-semibold flex items-center">
                   {video?.author?.title}
-                  {video?.author?.badges[0]?.type === "VERIFIED_CHANNEL" && (
+                  {video?.author?.badges?.[0]?.type === "VERIFIED_CHANNEL" && (
                     <BsFillCheckCircleFill className="text-white/[0.5] text-[12px] ml-1" />
                   )}
                 </div>
@@ -217,7 +217,7 @@ const VideoDetails = () => {
                         <div className="flex h-9 w-9 rounded-full overflow-hidden cursor-pointer">
                           <img
                             className="h-full w-full object-cover"
-                            src={comment?.author?.avatar[0]?.url}
+                            src={comment?.author?.avatar?.[0]?.url}
                             alt="avatar"
                           />
                         </div>
@@ -225,7 +225,7 @@ const VideoDetails = () => {
                       <div className="flex flex-col ml-4 cursor-pointer">
                         <div className="text-white text-md font-normal flex items-center">
                           {`${slicing(comment?.author?.title)}`}
-                          {comment?.author?.badges[0]?.type ===
+                          {comment?.author?.badges?.[0]?.type ===
                             "VERIFIED_CHANNEL" && (
                             <BsFillCheckCircleFill className="text-white/[0.5] text-[12px] ml-1" />
                           )}

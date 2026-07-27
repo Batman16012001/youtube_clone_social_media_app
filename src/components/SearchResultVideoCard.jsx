@@ -12,7 +12,7 @@ const SearchResultVideoCard = ({ video }) => {
         <div className="relative flex shrink-0 h-48 md:h-28 lg:h-40 xl:h-48 w-full md:w-48 lg:w-64 xl:w-80 rounded-xl bg-slate-800 overflow-hidden">
           <img
             className="h-full w-full object-cover"
-            src={video?.thumbnails[0]?.url}
+            src={video?.thumbnails?.[0]?.url}
             alt={video?.title || "Video thumbnail"}
           />
           {video?.lengthSeconds && <VideoLength time={video?.lengthSeconds} />}
@@ -45,7 +45,7 @@ const SearchResultVideoCard = ({ video }) => {
               <div className="flex h-7 w-7 rounded-full overflow-hidden mt-2">
                 <img
                   className="h-full w-full object-contain"
-                  src={video?.author?.avatar[0]?.url}
+                  src={video?.author?.avatar?.[0]?.url}
                   alt={video?.author?.title || "Channel avatar"}
                 />
               </div>
@@ -53,7 +53,7 @@ const SearchResultVideoCard = ({ video }) => {
             <div className="flex sm:flex-row">
               <span className="text-sm mt-2 text-white/[0.7] flex items-center hover-author">
                 {video?.author?.title}
-                {video?.author?.badges[0]?.type === "VERIFIED_CHANNEL" && (
+                {video?.author?.badges?.[0]?.type === "VERIFIED_CHANNEL" && (
                   <BsFillCheckCircleFill className="text-white/[0.5] text-[12px] lg:text-[10px] xl:text-[12px] ml-1" />
                 )}
               </span>
