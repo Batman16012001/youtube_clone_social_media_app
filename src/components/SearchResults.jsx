@@ -22,7 +22,7 @@ const SearchResults = () => {
       });
     };
     fetchSearchResults();
-  }, [searchQuery]);
+  }, [searchQuery,setLoading]);
 
   return (
     <div className="flex flex-row h-[calc(100%-56px)]">

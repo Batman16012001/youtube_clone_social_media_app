@@ -55,7 +55,7 @@ const VideoDetails = () => {
     fetchVideoDetails();
     fetchRelatedVideos();
     fetchComments();
-  }, [id]);
+  }, [id, setLoading]);
 
   const slicing = (String) => {
     let str = String.slice(0);
