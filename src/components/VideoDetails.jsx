@@ -5,7 +5,8 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 // import { AiOutlineLike } from "react-icons/ai";
 import { AiFillLike } from "react-icons/ai";
 import { abbreviateNumber } from "js-abbreviation-number";
-import ShowMoreText from 'react-show-more-text'
+// import ShowMoreText from 'react-show-more-text'
+import ShowMoreText from "react-show-more-text/lib/ShowMoreText";
 
 import { fetchDataFromApi } from "../utils/api";
 import { Context } from "../context/contextApi";
