@@ -27,37 +27,35 @@ const VideoDetails = () => {
 
   useEffect(() => {
     document.getElementById("root").classList.add("custom-h");
+    const fetchVideoDetails = () => {
+      setLoading(true);
+      fetchDataFromApi(`video/details/?id=${id}`).then((res) => {
+        console.log(res);
+        setVideo(res);
+        setLoading(false);
+      });
+    };
+    const fetchRelatedVideos = () => {
+      setLoading(true);
+      fetchDataFromApi(`video/related-contents/?id=${id}`).then((res) => {
+        console.log(res);
+        setRelatedVideos(res);
+        setLoading(false);
+      });
+    };
+    const fetchComments = () => {
+      setLoading(true);
+      fetchDataFromApi(`video/comments/?id=${id}`).then((res) => {
+        console.log(res);
+        setComments(res.comments);
+        setTotalComments(res.totalCommentsCount);
+        setLoading(false);
+      });
+    };
     fetchVideoDetails();
     fetchRelatedVideos();
     fetchComments();
   }, [id]);
-
-  const fetchVideoDetails = () => {
-    setLoading(true);
-    fetchDataFromApi(`video/details/?id=${id}`).then((res) => {
-      console.log(res);
-      setVideo(res);
-      setLoading(false);
-    });
-  };
-
-  const fetchRelatedVideos = () => {
-    setLoading(true);
-    fetchDataFromApi(`video/related-contents/?id=${id}`).then((res) => {
-      console.log(res);
-      setRelatedVideos(res);
-      setLoading(false);
-    });
-  };
-  const fetchComments = () => {
-    setLoading(true);
-    fetchDataFromApi(`video/comments/?id=${id}`).then((res) => {
-      console.log(res);
-      setComments(res.comments);
-      setTotalComments(res.totalCommentsCount);
-      setLoading(false);
-    });
-  };
 
   const slicing = (String) => {
     let str = String.slice(0);

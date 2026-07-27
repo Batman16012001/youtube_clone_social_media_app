@@ -13,21 +13,26 @@ const SearchResultVideoCard = ({ video }) => {
           <img
             className="h-full w-full object-cover"
             src={video?.thumbnails[0]?.url}
+            alt={video?.title || "Video thumbnail"}
           />
-          {video?.lengthSeconds && (
-            <VideoLength time={video?.lengthSeconds} />
-          )}
+          {video?.lengthSeconds && <VideoLength time={video?.lengthSeconds} />}
         </div>
         <div className="flex flex-col ml-4 md:ml-6 mt-4 md:mt-0 overflow-hidden">
-          <span className="text-normal md:text-xl line-clamp-2 text-white" style={{ fontWeight: "400" }}>
+          <span
+            className="text-normal md:text-xl line-clamp-2 text-white"
+            style={{ fontWeight: "400" }}
+          >
             {video?.title}
           </span>
-          <div className="text-xs font-semibold truncate overflow-hidden" style={{ color: "#aaa" }}>
-            <span>{` ${abbreviateNumber(
-              video?.stats?.views,
-              0
-            )} views`}</span>
-            <span className="text-[20px] eading-none sm:font-semibold relative top-[-3px] mx-1" style={{ color: "#aaa" }}>
+          <div
+            className="text-xs font-semibold truncate overflow-hidden"
+            style={{ color: "#aaa" }}
+          >
+            <span>{` ${abbreviateNumber(video?.stats?.views, 0)} views`}</span>
+            <span
+              className="text-[20px] eading-none sm:font-semibold relative top-[-3px] mx-1"
+              style={{ color: "#aaa" }}
+            >
               .
             </span>
             <span className="truncate" style={{ color: "#aaa" }}>
@@ -41,24 +46,26 @@ const SearchResultVideoCard = ({ video }) => {
                 <img
                   className="h-full w-full object-contain"
                   src={video?.author?.avatar[0]?.url}
+                  alt={video?.author?.title || "Channel avatar"}
                 />
               </div>
             </div>
             <div className="flex sm:flex-row">
               <span className="text-sm mt-2 text-white/[0.7] flex items-center hover-author">
                 {video?.author?.title}
-                {video?.author?.badges[0]?.type ===
-                  "VERIFIED_CHANNEL" && (
-                    <BsFillCheckCircleFill className="text-white/[0.5] text-[12px] lg:text-[10px] xl:text-[12px] ml-1" />
-                  )}
+                {video?.author?.badges[0]?.type === "VERIFIED_CHANNEL" && (
+                  <BsFillCheckCircleFill className="text-white/[0.5] text-[12px] lg:text-[10px] xl:text-[12px] ml-1" />
+                )}
               </span>
             </div>
           </div>
 
-          <span className="empty:hidden text-sm line-clamp-1 md:line-clamp-2 md:pr-24 md:my-4" style={{ color: "#aaa" }}>
+          <span
+            className="empty:hidden text-sm line-clamp-1 md:line-clamp-2 md:pr-24 md:my-4"
+            style={{ color: "#aaa" }}
+          >
             {video?.descriptionSnippet}
           </span>
-
         </div>
       </div>
     </Link>
